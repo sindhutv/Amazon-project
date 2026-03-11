@@ -14,7 +14,6 @@
 }
 
 
-
 function saveTostorage(){
   localStorage.setItem('cart',JSON.stringify(cart));
 }
@@ -52,4 +51,17 @@ function saveTostorage(){
   cart = newCart;
   saveTostorage();
 }
+
+export function updateDeliveryOption (productId,deliveryOptionId) {
+ let matchingItem;
+
+ cart.forEach ((cartItem) => {
+    if(productId === cartItem.productId){
+      matchingItem = cartItem;
+    }
+  });
+
+  matchingItem.deliveryOptionId = deliveryOptionId;
+   saveTostorage();
+  }
 
