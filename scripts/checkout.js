@@ -10,8 +10,8 @@ const today = dayjs(); // Create today's date using DayJS
 const deliveryDate = today.add(7,'days');
 console.log (deliveryDate.format('dddd, MMMM D'));
 
+function renderOrderSummary() {
 let cartSummaryHtml = '';  // This variable will store all HTML for the cart items
-
 
 cart.forEach((cartItem) =>{
   const productId = cartItem.productId;
@@ -148,8 +148,13 @@ document.querySelectorAll('.js-delete-link')
   element.addEventListener('click', () =>{
     const {productId,deliveryOptionId} = element.dataset;
     updateDeliveryOption(productId,deliveryOptionId);
+    renderOrderSummary();
   })
  })
+}
+
+
+renderOrderSummary();
 
 
 
