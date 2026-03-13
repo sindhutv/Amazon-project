@@ -1,8 +1,8 @@
 import {cart,removeFromCart,updateDeliveryOption} from '../../data/cart.js';
-import {products} from '../../data/products.js';
+import {products,getProduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions,getDeliveryoption } from '../../data/deliveryOptions.js';
 // import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js' // loading the external libraries directly from the online
 
 
@@ -16,24 +16,11 @@ let cartSummaryHtml = '';  // This variable will store all HTML for the cart ite
 cart.forEach((cartItem) =>{
   const productId = cartItem.productId;
 
-  let matchingProduct;
-
-  products.forEach ((product) =>{  // Loop through all products to find the product with the same id
-    if(product.id === productId) {  // If product id matches the cart item id
-      matchingProduct = product;  // Save this product
-    }
-  });
-
+  const matchingProduct =getProduct(productId);
 
   const deliveryOptionsId = cartItem.deliveryOptionId;
 
-  let deliveryOption;
-
-  deliveryOptions.forEach((option) =>{
-    if (option.id === deliveryOptionsId) {
-      deliveryOption = option;
-    }
-  });
+  const deliveryOption = getDeliveryoption(deliveryOptionsId);
 
 const today = dayjs();
   const deliveryDate = today.add(
