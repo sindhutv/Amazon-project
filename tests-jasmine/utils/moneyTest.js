@@ -1,23 +1,17 @@
-import {formatCurrency} from "../../scripts/utils/money.js";
+import { formatCurrency } from "../../scripts/utils/money.js";
 
-console.log('Converts Cents into dollars');
-if (formatCurrency(2095) === '20.95') {
-  console.log('passed');
-} else {
-    console.log('Failed');
-}
+describe('formatCurrency', function () {
 
-console.log('Works with Zero');
-if (formatCurrency(0) === '0.00') {
-  console.log('passed');
-} else {
-    console.log('Failed');
-}
+  it('converts cents into dollars', function () {
+    expect(formatCurrency(2095)).toBe('20.95');
+  });
 
-console.log('Rounds up  to the neareset Cents');
-if (formatCurrency(2000.5) === '20.01') {
-  console.log('passed');
-} else {
-    console.log('Failed');
-}
+  it('works with 0', function () {
+    expect(formatCurrency(0)).toBe('0.00');
+  });
 
+  it('rounds up to the nearest cent', function () {
+    expect(formatCurrency(2000.5)).toBe('20.01');
+  });
+
+});
