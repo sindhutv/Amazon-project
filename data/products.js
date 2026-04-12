@@ -109,10 +109,13 @@ logThis.call('hello');
     });
 
   console.log('load products');
-  })
+  }).catch((error)=> {
+     console.log('Unexpected error. Please try again later.')
+  });
 
   return promise;
-}
+ }
+ 
 
 /*
 loadProductsFetch(). then (() => {
@@ -138,9 +141,15 @@ export let products = [];
   fun();
   });
 
+  xhr.addEventListener('error',() =>{
+    console.log('Unexpected error. Please try again later.')
+  });
+
+
   xhr.open('Get','https://supersimplebackend.dev/products');
   xhr.send(); // this is a asynchrnous code that means it will just send and does not wait till the response comes
 }
+
 
 /*
 export const products = [
