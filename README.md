@@ -73,3 +73,10 @@ This project helped me practice:
 - Shopping cart logic
 - Code organization
 
+Screenshots
+
+<img width="2557" height="1304" alt="image" src="https://github.com/user-attachments/assets/96d3bd9e-e493-4c97-b3e1-dd170b917a2c" />
+
+<img width="2559" height="1304" alt="image" src="https://github.com/user-attachments/assets/5d3f31b7-9135-4cd7-90ba-a86c867c944c" />
+
+
